@@ -10,11 +10,6 @@ nameForm.addEventListener('submit', function(event) {
     //save it to local storage
     localStorage.setItem('userName', userNameProvided);
     //show it on the page
-    nameForm.textContent = 'Welcome to our site ' + userNameProvided;
+    nameForm.textContent = 'Daniel made this work: name entered is ' + userNameProvided;
 
 });
-//remove the form
-var savedName = localStorage.getItem('userName');
-if (savedName) {
-    nameForm.textContent = `Thanks for stopping by ${savedName}.  Your participation is key to our results!`;
-}
