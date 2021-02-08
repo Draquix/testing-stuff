@@ -1,44 +1,73 @@
 console.log('app.js is connected');
 
-//There is a form on the page with ID 'name-form', so to let JavaScript manipulate
-//it I set a var nameForm to getElementById.
-var nameForm = document.getElementById('name-form');
+//for-each allows to iterate through an array
+let myArray = ['a','b','c'];
 
-//this will happen upon page load, the var firstTime becomes a new Date object
-//and var 'begin' gets the firstTime.getTime() which records the current time of
-//the day in milliseconds
-var firstTime = new Date;
-var begin = firstTime.getTime();
+myArray.forEach( function(value, index){
+    console.log(index);
+    console.log(value);
+} )
 
-//this event Listener waits for the submit button on the form to be clicked.
-nameForm.addEventListener('submit', function(event) {
-    //prevent refresh
-    event.preventDefault();
+let people = ['john', 'mary','susan','zach'];
+for (let i = 0; i <= people.length; i++) {
+    if (i===2) {
+        break;
+    }
+    console.log('people at i', people[i]);
+}
 
-    //now we want to record the time (in milliseconds) that the button was clicked
-    //so secondTime becomes a new Date object...  (i wish dates were so easy to get)
-    var secondTime = new Date;
-    //the var end calls the getTime() method on that secondTime Date object and
-    //records the current time in milliseconds.
-    var end = secondTime.getTime();
 
-    //there's an H1 on the HTML side that serves as a place to write text to
-    //so we grab that elementById below
-    var timerDisplay = document.getElementById('time');
-    //now we display our number by setting the .textContent to a calculation
-    //that is the second time in milliseconds minus the first.
-    //...essentially this tells us the time elapsed between the page loading and
-    //the submit button being clicked for the form.
-    timerDisplay.textContent = end - begin;
+for (let i = 0; i <= people.length; i++) {
+    if (i===2) {
+        continue;
+    }
+    console.log('people at i', people[i]);
+}
 
-    //this just grabs the name entered in the form and stores in a variable
-    var userNameProvided = document.getElementById('name').value;
-    
-    //below replaces the form's text entry box with a string, which is what
-    //you're trying to get to happen on your project.
-    //by setting the formElement.textContent to a string the entry box and button
-    // poof disappear.
-    nameForm.textContent = 'Daniel made this work: name entered is ' + userNameProvided;
+function findIt(array, pos=0){
+    for (let i = 0; i <= array.length-1; i++) {
+        if (i === pos) {
+            return array[i];
+        }
+    }
+    return null;
+}
+console.log('this is the for loop return', findIt(people,3));
 
-    //  Daniel > others.
-});
+
+
+people.forEach( function(item, index){
+    console.log(item);
+    console.log(index);
+})
+
+//arrow functions and interpolated strings
+let f1 = () => 'hi';
+console.log('f1',f1);
+
+let f2 = (name) => `hi ${name}`;  //uses template literal
+
+let e2 = function(name){
+    return `hi ${name}`;
+}
+
+let a= 10;
+let b = 10
+let add = (a,b) => a+b;
+console.log('add',add(a,b));
+
+let abs = a => Math.abs(a);
+let abs2 = a => {
+    let results = Math.abs(a);
+    return results;
+}
+
+//Code Challenge 1 example
+
+const addOne = (arr) => {
+    const newArray = [];
+    arr.forEach( value => (
+        newArray.push(value+1)
+    ));
+    return newArray                                                 
+};

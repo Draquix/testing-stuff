@@ -1,0 +1,29 @@
+
+@media( min-width:960px){
+header {
+    height:75px;                                                                                
+    line-height: 75px                                      ;
+}
+
+h1 {
+    margin:0;
+}
+
+footer {
+    height:75px;
+    line-height:75px;
+}
+
+section{
+
+}
+
+div{
+    height:300px;
+    line-height:300px;
+    margin:2em;
+}
+}
+
+
+/*Mobile*/
